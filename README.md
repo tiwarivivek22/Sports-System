@@ -21,6 +21,6 @@ This project explores the role of **wearable technology and predictive analytics
 
 - VIVEK PRABHAT
 - ANUJ
+- MUHAMMAD HASSAN
 - VED PRAKASH
-  
 
