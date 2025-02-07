@@ -58,88 +58,44 @@
                 </div>
             </div>
         </nav>
-
+        
         <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="px-4 py-6 sm:px-0">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white overflow-hidden shadow rounded-lg">
-                        <div class="p-5">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
-                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-5 w-0 flex-1">
-                                    <dl>
-                                        <dt class="text-sm font-medium text-gray-500 truncate">
-                                            Total Steps
-                                        </dt>
-                                        <dd id="total-steps" class="text-3xl font-semibold text-gray-900">
-                                            0
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-white overflow-hidden shadow rounded-lg p-5">
+                        <label class="text-sm font-medium text-gray-500">Total Steps</label>
+                        <input id="total-steps" type="number" class="mt-1 p-2 w-full border rounded-lg text-3xl font-semibold text-gray-900" value="0" onchange="updateValues()">
                     </div>
-
-                    <div class="bg-white overflow-hidden shadow rounded-lg">
-                        <div class="p-5">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
-                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-5 w-0 flex-1">
-                                    <dl>
-                                        <dt class="text-sm font-medium text-gray-500 truncate">
-                                            Calories Burned
-                                        </dt>
-                                        <dd id="total-calories" class="text-3xl font-semibold text-gray-900">
-                                            0
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div class="bg-white overflow-hidden shadow rounded-lg p-5">
+                        <label class="text-sm font-medium text-gray-500">Calories Burned</label>
+                        <input id="total-calories" type="number" class="mt-1 p-2 w-full border rounded-lg text-3xl font-semibold text-gray-900" value="0" onchange="updateValues()">
                     </div>
-
-                    <div class="bg-white overflow-hidden shadow rounded-lg">
-                        <div class="p-5">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
-                                    <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                                    </svg>
-                                </div>
-                                <div class="ml-5 w-0 flex-1">
-                                    <dl>
-                                        <dt class="text-sm font-medium text-gray-500 truncate">
-                                            Distance Covered
-                                        </dt>
-                                        <dd id="total-distance" class="text-3xl font-semibold text-gray-900">
-                                            0 km
-                                        </dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div class="bg-white overflow-hidden shadow rounded-lg p-5">
+                        <label class="text-sm font-medium text-gray-500">Distance Covered (km)</label>
+                        <input id="total-distance" type="number" step="0.01" class="mt-1 p-2 w-full border rounded-lg text-3xl font-semibold text-gray-900" value="0" onchange="updateValues()">
                     </div>
                 </div>
-
-                <div class="mt-8 bg-white overflow-hidden shadow rounded-lg">
-                    <div class="p-5">
-                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity Over Time</h2>
-                        <canvas id="activity-chart"></canvas>
-                    </div>
+                
+                <div class="mt-8 bg-white overflow-hidden shadow rounded-lg p-5">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity Over Time</h2>
+                    <canvas id="activity-chart"></canvas>
                 </div>
             </div>
         </main>
     </div>
 
     <script>
+
+
+        function updateValues() {
+            const steps = document.getElementById('total-steps').value;
+            const calories = document.getElementById('total-calories').value;
+            const distance = document.getElementById('total-distance').value;
+            
+            console.log(`Updated Values - Steps: ${steps}, Calories: ${calories}, Distance: ${distance} km`);
+        }
         // User data storage (in a real app, this would be server-side)
         let users = [];
         let currentUser = null;
