@@ -30,13 +30,31 @@
         </div>
     </div>
 
-    <div id="profile-form" class="min-h-screen flex items-center justify-center" style="display: none;">
-        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <div id="profile-form" class="min-h-screen flex items-center justify-center px-4" style="display: none;">
+        <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full sm:w-3/4 md:w-2/3 lg:w-1/2 max-w-lg">
             <h1 class="text-2xl font-bold mb-6 text-center">Create Your Profile</h1>
             <form id="profile-form-element" class="space-y-4">
-                <input type="text" id="name" placeholder="Name" required class="w-full px-3 py-2 border rounded-md">
-                <input type="number" id="age" placeholder="Age" required class="w-full px-3 py-2 border rounded-md">
+                <div>
+                    <input type="text" id="name" placeholder="Name" required class="w-full px-3 py-2 border rounded-md">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="number" id="age" placeholder="Age" required class="w-full px-3 py-2 border rounded-md">
+                    <select id="gender" required class="w-full px-3 py-2 border rounded-md">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="number" id="height" placeholder="Height (cm)" required class="w-full px-3 py-2 border rounded-md">
+                    <input type="number" id="weight" placeholder="Weight (kg)" required class="w-full px-3 py-2 border rounded-md">
+                </div>
+
+                <div>
                 <input type="text" id="sport" placeholder="Sport" required class="w-full px-3 py-2 border rounded-md">
+                </div>
                 <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">Save Profile</button>
             </form>
         </div>
@@ -296,4 +314,5 @@
     </script>
 </body>
 </html>
+
 
