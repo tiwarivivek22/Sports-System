@@ -90,8 +90,11 @@ profileFormElement.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const age = document.getElementById('age').value;
+    const height = document.getElementById('height').value;
+    const weight = document.getElementById('weight').value;
+    const gender = document.getElementById('gender').value;
     const sport = document.getElementById('sport').value;
-    currentUser.profile = { name, age, sport };
+    currentUser.profile = { name, age, sport, height, weight, gender};
     currentUser.activityData = [];
     showDashboard();
 });
@@ -302,7 +305,6 @@ updateChart(weeklyData);
 document.getElementById("monthly-btn").addEventListener("click", function () {
 updateChart(monthlyData);
 });
-
 // Function to Update Chart
 function updateChart(data) {
 chart.data.labels = data.labels;
