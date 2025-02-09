@@ -314,3 +314,38 @@ chart.data.datasets[2].data = data.distance;
 chart.update();
 }
 });
+
+
+  // BMI Calculator
+  const heightInput = document.getElementById("height")
+  const weightInput = document.getElementById("weight")
+  const bmiValue = document.getElementById("bmi-value")
+  const bmiStatus = document.getElementById("bmi-status")
+  const gaugeFill = document.querySelector(".gauge-fill")
+
+  function calculateBMI() {
+    const height = heightInput.value / 100 // convert cm to m
+    const weight = weightInput.value
+    const bmi = (weight / (height * height)).toFixed(1)
+
+    bmiValue.textContent = bmi
+
+    if (bmi < 18.5) {
+      bmiStatus.textContent = "Underweight"
+    } else if (bmi >= 18.5 && bmi < 25) {
+      bmiStatus.textContent = "You're Healthy"
+    } else if (bmi >= 25 && bmi < 30) {
+      bmiStatus.textContent = "Overweight"
+    } else {
+      bmiStatus.textContent = "Obese"
+    }
+
+    const percentage = ((bmi - 15) / (40 - 15)) * 100
+    gaugeFill.style.width = `${Math.min(100, Math.max(0, percentage))}%`
+  }
+
+  heightInput.addEventListener("input", calculateBMI)
+  weightInput.addEventListener("input", calculateBMI)
+
+
+  

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react"
 import AuthPage from "./components/AuthPage"
-import ProfilePage from "./components/ProfilePage.tsx"
 import DashboardPage from "./components/DashboardPage.tsx"
 
 export default function Home() {
@@ -39,7 +38,6 @@ export default function Home() {
   return (
     <div className="container mx-auto p-4">
       {currentPage === "auth" && <AuthPage onAuthSuccess={handleAuthSuccess} />}
-      {currentPage === "profile" && <ProfilePage onProfileSave={handleProfileSave} userData={currentUser} />}
       {currentPage === "dashboard" && <DashboardPage userData={currentUser} onLogout={handleLogout} />}
     </div>
   )

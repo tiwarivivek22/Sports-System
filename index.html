@@ -47,12 +47,6 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <input type="number" id="height" placeholder="Height (cm)" required class="w-full px-3 py-2 border rounded-md">
-                    <input type="number" id="weight" placeholder="Weight (kg)" required class="w-full px-3 py-2 border rounded-md">
-                </div>
-
                 <div>
                 <input type="text" id="sport" placeholder="Sport" required class="w-full px-3 py-2 border rounded-md">
                 </div>
@@ -126,16 +120,81 @@
                     </div>
                 </div>
                 
-                <div class="mt-8 bg-white overflow-hidden shadow rounded-lg p-5">
-                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity Over Time</h2>
-                    
-                    <!-- Toggle Buttons -->
-                    <div class="flex space-x-4 mb-4">
-                        <button id="weekly-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Weekly</button>
-                        <button id="monthly-btn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400">Monthly</button>
+                <div class="mt-8 bg-white overflow-hidden shadow rounded-lg p-5 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Left Panel: Activity Over Time -->
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity Over Time</h2>
+
+                        <div class="metrics-grid mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
+                                <h3 class="font-semibold">Blood Sugar</h3>
+                                <div class="text-xl font-bold">80 <span class="text-sm">mg/dL</span></div>
+                                <div class="text-green-600">Normal</div>
+                            </div>
+                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
+                                <h3 class="font-semibold">Heart Rate</h3>
+                                <div class="text-xl font-bold">98 <span class="text-sm">bpm</span></div>
+                                <div class="text-green-600">Normal</div>
+                            </div>
+                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
+                                <h3 class="font-semibold">Blood Pressure</h3>
+                                <div class="text-xl font-bold">102/72 <span class="text-sm">mmHg</span></div>
+                                <div class="text-green-600">Normal</div>
+                            </div>
+                        </div>
+                        
+                        <canvas id="activity-chart"></canvas>
+                        
+                        <!-- Toggle Buttons -->
+                        <div class="flex space-x-4 mb-4">
+                            <button id="weekly-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Weekly</button>
+                            <button id="monthly-btn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400">Monthly</button>
+                        </div>
+                        
+                        
+                        
                     </div>
-                
-                    <canvas id="activity-chart"></canvas>
+                    
+                    <!-- Right Panel: BMI Calculator -->
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">BMI Calculator</h2>
+                        
+                        <!-- <select id="bmi-period" class="w-full p-2 border rounded mb-4">
+                            <option value="lastWeek">Last Week</option>
+                            <option value="lastMonth">Last Month</option>
+                        </select>
+                         -->
+                        <div class="bmi-inputs flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4">
+                            <input type="number" id="height" placeholder="Height (cm)" class="p-2 border rounded w-full sm:w-1/2" value="170">
+                            <input type="number" id="weight" placeholder="Weight (kg)" class="p-2 border rounded w-full sm:w-1/2" value="72">
+                        </div>
+                        
+                        <div class="bmi-result text-center p-4 bg-gray-100 rounded-lg">
+                            <h3 class="font-semibold">Body Mass Index (BMI)</h3>
+                            <div class="text-2xl font-bold" id="bmi-value">24.9</div>
+                            <div id="bmi-status" class="text-green-600">You're Healthy</div>
+                        </div>
+                        
+                        <div class="body-measurements mt-6">
+                            <h3 class="font-semibold">Body Measurements</h3>
+                            <p class="text-sm text-gray-500">Last checked 2 Days Ago</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                                <div class="measurement-card text-center p-4 bg-gray-100 rounded-lg">
+                                    <h4 class="font-semibold">Chest (in)</h4>
+                                    <input type="number" class="text-xl font-bold text-center w-full bg-transparent border rounded p-2" value="44.5">
+                                </div>
+                                <div class="measurement-card text-center p-4 bg-gray-100 rounded-lg">
+                                    <h4 class="font-semibold">Waist (in)</h4>
+                                    <input type="number" class="text-xl font-bold text-center w-full bg-transparent border rounded p-2" value="34">
+                                </div>
+                                <div class="measurement-card text-center p-4 bg-gray-100 rounded-lg">
+                                    <h4 class="font-semibold">Hip (in)</h4>
+                                    <input type="number" class="text-xl font-bold text-center w-full bg-transparent border rounded p-2" value="42.5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </div>
             
