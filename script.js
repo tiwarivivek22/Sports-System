@@ -347,5 +347,14 @@ chart.update();
   heightInput.addEventListener("input", calculateBMI)
   weightInput.addEventListener("input", calculateBMI)
 
+  function timeAgo(date) {
+    const now = new Date();
+    const diff = Math.floor((now - date) / (1000 * 60 * 60 * 24)); // Difference in days
+    return diff === 0 ? "Today" : diff === 1 ? "Yesterday" : `${diff} Days Ago`;
+  }
+
+  const lastCheckedDate = new Date("2024-02-08"); // Set your last checked date here
+  document.getElementById("lastChecked").innerText = `Last checked ${timeAgo(lastCheckedDate)}`;
+
 
   
