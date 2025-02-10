@@ -125,24 +125,8 @@
                     <div class="w-full md:w-1/2">
                         <h2 class="text-lg font-semibold text-gray-900 mb-4">Activity Over Time</h2>
 
-                        <div class="metrics-grid mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
-                                <h3 class="font-semibold">Blood Sugar</h3>
-                                <div class="text-xl font-bold">80 <span class="text-sm">mg/dL</span></div>
-                                <div class="text-green-600">Normal</div>
-                            </div>
-                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
-                                <h3 class="font-semibold">Heart Rate</h3>
-                                <div class="text-xl font-bold">98 <span class="text-sm">bpm</span></div>
-                                <div class="text-green-600">Normal</div>
-                            </div>
-                            <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
-                                <h3 class="font-semibold">Blood Pressure</h3>
-                                <div class="text-xl font-bold">102/72 <span class="text-sm">mmHg</span></div>
-                                <div class="text-green-600">Normal</div>
-                            </div>
-                        </div>
-                        
+                        <div id="metricsGrid" class="metrics-grid mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
                         <canvas id="activity-chart"></canvas>
                         
                         <!-- Toggle Buttons -->
@@ -150,9 +134,6 @@
                             <button id="weekly-btn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Weekly</button>
                             <button id="monthly-btn" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400">Monthly</button>
                         </div>
-                        
-                        
-                        
                     </div>
                     
                     <!-- Right Panel: BMI Calculator -->

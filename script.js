@@ -357,4 +357,21 @@ chart.update();
   document.getElementById("lastChecked").innerText = `Last checked ${timeAgo(lastCheckedDate)}`;
 
 
-  
+  const healthMetrics = [
+    { name: "Blood Sugar", value: 80, unit: "mg/dL", status: "Normal", statusColor: "text-green-600" },
+    { name: "Heart Rate", value: 98, unit: "bpm", status: "Normal", statusColor: "text-green-600" },
+    { name: "Blood Pressure", value: "102/72", unit: "mmHg", status: "Normal", statusColor: "text-green-600" }
+  ];
+
+  function renderMetrics() {
+    const container = document.getElementById("metricsGrid");
+    container.innerHTML = healthMetrics.map(metric => `
+      <div class="metric-card text-center p-4 bg-gray-100 rounded-lg">
+        <h3 class="font-semibold">${metric.name}</h3>
+        <div class="text-xl font-bold">${metric.value} <span class="text-sm">${metric.unit}</span></div>
+        <div class="${metric.statusColor}">${metric.status}</div>
+      </div>
+    `).join("");
+  }
+
+  renderMetrics(); // Render the metrics dynamically
